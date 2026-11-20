@@ -1,149 +1,71 @@
 
 import { Link } from "react-router-dom";
-import {
-  ArrowUpRight,
-  Camera,
-  BriefcaseBusiness,
-  Globe,
-} from "lucide-react";
+import { Mail, Phone } from "lucide-react";
+
+const currentYear = new Date().getFullYear();
 
 export default function Footer() {
   return (
     <footer className="footer">
-
       <div className="footer-main">
-
-        {/* BRAND */}
-
         <div className="footer-brand">
-
           <Link to="/" className="footer-logo">
             LBDG<span>.</span>
           </Link>
 
           <p>
-            Creative thinking. Digital growth.
-            Building stronger brands through
-            strategy, design and technology.
+            Websites, brand design and digital marketing
+            for businesses that want a stronger online presence.
           </p>
-
-          <div className="footer-socials">
-
-            <a
-              href="#"
-              aria-label="Instagram"
-              title="Instagram"
-            >
-              <Camera size={18} />
-            </a>
-
-            <a
-              href="#"
-              aria-label="LinkedIn"
-              title="LinkedIn"
-            >
-              <BriefcaseBusiness size={18} />
-            </a>
-
-            <a
-              href="#"
-              aria-label="Website"
-              title="Website"
-            >
-              <Globe size={18} />
-            </a>
-
-          </div>
-
         </div>
 
-        {/* EXPLORE LINKS */}
-
         <div className="footer-column">
-
           <h4>EXPLORE</h4>
-
           <Link to="/">Home</Link>
-          <Link to="/about">About Us</Link>
-          <Link to="/services">Our Services</Link>
+          <Link to="/about">About</Link>
+          <Link to="/services">Services</Link>
           <Link to="/portfolio">Our Work</Link>
           <Link to="/contact">Contact</Link>
-
         </div>
-
-        {/* SERVICES */}
 
         <div className="footer-column">
+          <h4>CONTACT</h4>
 
-          <h4>OUR SERVICES</h4>
+          <a href="mailto:lbdgagency@gmail.com">
+            <Mail size={15} /> lbdgagency@gmail.com
+          </a>
 
-          <Link to="/services#digital-marketing">
-            Digital Marketing
-          </Link>
+          <a href="tel:+919838686391">
+            <Phone size={15} /> +91 98386 86391
+          </a>
 
-          <Link to="/services#social-media">
-            Social Media Management
-          </Link>
-
-          <Link to="/services#advertising">
-            Advertising Services
-          </Link>
-
-          <Link to="/services#graphic-design">
-            Graphic Designing
-          </Link>
-
-          <Link to="/services#web-development">
-            Website Development
-          </Link>
-
-          <Link to="/services#seo">
-            SEO Services
-          </Link>
-
-        </div>
-
-        {/* CONTACT */}
-
-        <div className="footer-column footer-contact">
-
-          <h4>LET'S CONNECT</h4>
-
-          <p>
-            Have an idea? Let's talk about it.
-          </p>
-
-          <Link
-            to="/contact"
-            className="footer-contact-link"
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=A-23%2C%20A%20Block%2C%20Sector%2010%2C%20Noida"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Start a conversation
-            <ArrowUpRight size={17} />
-          </Link>
-
+            A-23, A Block, Sector 10, Noida, Uttar Pradesh
+          </a>
         </div>
-
       </div>
 
-      {/* FOOTER BOTTOM */}
-
       <div className="footer-bottom">
-
         <span>
-          © {new Date().getFullYear()} LBDG Agency.
+          © {currentYear} LBDG Agency.
           All rights reserved.
         </span>
 
-        <Link to="/">
+        <button
+          type="button"
+          onClick={() =>
+            window.scrollTo({ top: 0, behavior: "smooth" })
+          }
+        >
           BACK TO TOP ↑
-        </Link>
+        </button>
 
-        <span>
-          MADE FOR WHAT'S NEXT.
-        </span>
-
+        <span>NO EMPTY PROMISES. JUST GOOD WORK.</span>
       </div>
-
     </footer>
   );
 }

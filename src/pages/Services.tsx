@@ -1,353 +1,154 @@
-
 import { Link } from "react-router-dom";
-import { motion } from "motion/react";
-
 import {
-  TrendingUp,
-  Camera,
-  Megaphone,
-  Palette,
-  Code2,
-  Search,
   ArrowUpRight,
-  Check,
+  Code2,
+  Palette,
+  Megaphone,
+  Search,
+  Camera,
+  TrendingUp,
 } from "lucide-react";
 
 const services = [
   {
-    id: "digital-marketing",
-    number: "01",
-    title: "Digital Marketing",
-    subtitle: "STRATEGY & GROWTH",
-    description:
-      "Build a stronger digital presence with marketing strategies designed to connect your business with the right audience.",
-    details:
-      "From understanding your audience to planning campaigns, digital marketing helps businesses communicate their value across online channels.",
-    icon: TrendingUp,
+    id: "web-development",
+    title: "Website Development",
+    icon: Code2,
+    summary: "Business websites built for clarity, usability and mobile screens.",
     deliverables: [
-      "Digital marketing strategy",
-      "Audience research",
-      "Campaign planning",
-      "Performance analysis",
-    ],
-  },
-  {
-    id: "social-media",
-    number: "02",
-    title: "Social Media Management",
-    subtitle: "CONTENT & COMMUNITY",
-    description:
-      "Turn your social media profiles into meaningful spaces for brand communication, engagement and community building.",
-    details:
-      "Create a consistent social presence through content planning, creative posts, publishing and audience engagement.",
-    icon: Camera,
-    deliverables: [
-      "Social media strategy",
-      "Content calendars",
-      "Post and reel planning",
-      "Community engagement",
-    ],
-  },
-  {
-    id: "advertising",
-    number: "03",
-    title: "Advertising Services",
-    subtitle: "CAMPAIGNS & REACH",
-    description:
-      "Put your brand in front of the right audience through creative advertising and focused campaign planning.",
-    details:
-      "Advertising helps businesses increase visibility, communicate offers and reach potential customers through relevant digital channels.",
-    icon: Megaphone,
-    deliverables: [
-      "Campaign planning",
-      "Ad creative concepts",
-      "Audience targeting",
-      "Campaign performance review",
+      "Page structure and navigation",
+      "Responsive desktop and mobile layouts",
+      "Contact and inquiry forms",
+      "On-page SEO foundations",
+      "Deployment and launch checks",
     ],
   },
   {
     id: "graphic-design",
-    number: "04",
     title: "Graphic Designing",
-    subtitle: "VISUAL IDENTITY",
-    description:
-      "Make your brand memorable with distinctive visuals and thoughtful design that communicates your identity.",
-    details:
-      "From promotional graphics to brand visuals, effective graphic design makes communication more engaging and recognizable.",
     icon: Palette,
+    summary: "Visual material that keeps your brand consistent across channels.",
     deliverables: [
-      "Social media creatives",
-      "Marketing materials",
-      "Promotional graphics",
-      "Brand visual assets",
+      "Social media post designs",
+      "Promotional campaign creatives",
+      "Marketing banners",
+      "Brand colour and typography direction",
+      "Export-ready design files",
     ],
   },
   {
-    id: "web-development",
-    number: "05",
-    title: "Website Development",
-    subtitle: "DESIGN & DEVELOPMENT",
-    description:
-      "Give your business a professional online presence with responsive, attractive and user-friendly websites.",
-    details:
-      "We bring design and development together to create digital experiences that are easy to navigate and work across devices.",
-    icon: Code2,
+    id: "digital-marketing",
+    title: "Digital Marketing",
+    icon: TrendingUp,
+    summary: "Campaign planning based on your audience, offer and business goals.",
     deliverables: [
-      "Responsive website development",
-      "Website UI implementation",
-      "Mobile-friendly layouts",
-      "Website functionality",
+      "Business and audience review",
+      "Channel recommendations",
+      "Campaign planning",
+      "Content direction",
+      "Performance review",
+    ],
+  },
+  {
+    id: "social-media",
+    title: "Social Media Management",
+    icon: Camera,
+    summary: "A more consistent social presence with planned content and publishing.",
+    deliverables: [
+      "Content calendar",
+      "Post and reel concepts",
+      "Creative asset preparation",
+      "Caption and hashtag direction",
+      "Publishing and engagement scope",
+    ],
+  },
+  {
+    id: "advertising",
+    title: "Advertising Services",
+    icon: Megaphone,
+    summary: "Paid campaign creative and planning for relevant audiences.",
+    deliverables: [
+      "Campaign objective planning",
+      "Audience research",
+      "Ad copy and creative direction",
+      "Campaign setup scope",
+      "Performance reporting",
     ],
   },
   {
     id: "seo",
-    number: "06",
     title: "SEO Services",
-    subtitle: "SEARCH & VISIBILITY",
-    description:
-      "Help customers discover your business through improved search visibility and search-friendly website content.",
-    details:
-      "Search engine optimization focuses on improving how your website is understood and discovered through organic search.",
     icon: Search,
+    summary: "Website improvements that make pages easier for search engines to understand.",
     deliverables: [
       "Keyword research",
-      "On-page SEO",
-      "Website content optimization",
-      "SEO performance monitoring",
+      "Page title and meta description review",
+      "Heading and content structure",
+      "Image alt text recommendations",
+      "Technical SEO checks",
     ],
-  },
-];
-
-const process = [
-  {
-    number: "01",
-    title: "Discover",
-    description:
-      "We understand your business, goals and target audience.",
-  },
-  {
-    number: "02",
-    title: "Plan",
-    description:
-      "We develop a clear strategy and define the direction.",
-  },
-  {
-    number: "03",
-    title: "Execute",
-    description:
-      "We bring the strategy to life through creative execution.",
-  },
-  {
-    number: "04",
-    title: "Optimize",
-    description:
-      "We review, refine and identify opportunities to improve.",
   },
 ];
 
 export default function Services() {
   return (
-    <main className="services-page">
-
-      {/* HERO */}
-
-      <section className="services-page-hero">
-
-        <motion.div
-          initial={{ opacity: 0, y: 35 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <span className="eyebrow">
-            WHAT WE DO / OUR EXPERTISE
-          </span>
-
-          <h1>
-            IDEAS INTO
-            <br />
-            <span>IMPACT.</span>
-            <br />
-            STRATEGY INTO GROWTH.
-          </h1>
-
-          <div className="services-page-hero-bottom">
-
-            <p>
-              Creative solutions and digital expertise
-              to help your business build its presence,
-              connect with people and grow.
-            </p>
-
-            <Link to="/contact" className="primary-btn">
-              Discuss Your Project
-              <ArrowUpRight size={18} />
-            </Link>
-
-          </div>
-        </motion.div>
-
-      </section>
-
-
-      {/* SERVICES INTRO */}
-
-      <section className="services-page-intro">
-
-        <div className="about-section-label">
-          <span>01 / WHAT WE OFFER</span>
-          <span>SIX AREAS OF EXPERTISE</span>
-        </div>
-
-        <h2>
-          EVERYTHING YOUR
+    <main className="rev-page">
+      <section className="rev-page-intro rev-services-intro">
+        <span className="rev-kicker">SERVICES / WHAT WE DELIVER</span>
+        <h1>
+          PICK THE WORK
           <br />
-          BRAND NEEDS TO <span>MOVE FORWARD.</span>
-        </h2>
-
+          <span>YOUR BUSINESS NEEDS.</span>
+        </h1>
         <p>
-          Explore our services and discover how creative
-          thinking, strategic planning and technology
-          can support your business.
+          Each project starts with a clear scope. Explore the deliverables
+          and enquire about the service that fits your requirements.
         </p>
-
       </section>
 
-
-      {/* INDIVIDUAL SERVICE SECTIONS */}
-
-      <section className="detailed-services">
-
-        {services.map((service) => {
+      <section className="rev-services-list">
+        {services.map((service, index) => {
           const Icon = service.icon;
 
           return (
-            <motion.article
-              id={service.id}
-              className="detailed-service"
-              key={service.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.55 }}
-            >
-
-              <div className="detailed-service-number">
-                {service.number}
-              </div>
-
-              <div className="detailed-service-main">
-
-                <div className="detailed-service-heading">
-
-                  <div className="detailed-service-icon">
-                    <Icon size={30} strokeWidth={1.5} />
-                  </div>
-
-                  <span>{service.subtitle}</span>
-
-                </div>
-
+            <article className="rev-service-detail" id={service.id} key={service.id}>
+              <div className="rev-service-detail-title">
+                <span>0{index + 1}</span>
+                <Icon size={28} />
                 <h2>{service.title}</h2>
-
-                <p className="detailed-service-description">
-                  {service.description}
-                </p>
-
-                <p className="detailed-service-details">
-                  {service.details}
-                </p>
-
+                <p>{service.summary}</p>
               </div>
 
-              <div className="detailed-service-deliverables">
-
-                <h4>WHAT THIS INCLUDES</h4>
-
-                {service.deliverables.map((item) => (
-                  <div className="deliverable" key={item}>
-                    <Check size={16} />
-                    <span>{item}</span>
-                  </div>
-                ))}
-
+              <div className="rev-service-detail-list">
+                <h3>DELIVERABLES</h3>
+                <ul>
+                  {service.deliverables.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
                 <Link
-                  to="/contact"
-                  className="service-contact-link"
+                  to={`/contact?service=${encodeURIComponent(service.title)}`}
+                  className="rev-text-link"
                 >
-                  Enquire About This Service
-                  <ArrowUpRight size={18} />
+                  Enquire about {service.title} <ArrowUpRight size={17} />
                 </Link>
-
               </div>
-
-            </motion.article>
+            </article>
           );
         })}
-
       </section>
 
-
-      {/* PROCESS */}
-
-      <section className="services-process">
-
-        <div className="about-section-label">
-          <span>03 / OUR APPROACH</span>
-          <span>HOW WE WORK</span>
-        </div>
-
-        <h2>
-          SIMPLE PROCESS.
-          <br />
-          <span>THOUGHTFUL EXECUTION.</span>
-        </h2>
-
-        <div className="services-process-grid">
-
-          {process.map((step) => (
-            <div className="services-process-card" key={step.number}>
-
-              <span>{step.number}</span>
-
-              <h3>{step.title}</h3>
-
-              <p>{step.description}</p>
-
-            </div>
-          ))}
-
-        </div>
-
-      </section>
-
-
-      {/* FINAL CTA */}
-
-      <section className="services-final-cta">
-
-        <span className="eyebrow">
-          READY TO GET STARTED?
-        </span>
-
-        <h2>
-          LET'S GROW
-          <br />
-          <span>YOUR BRAND.</span>
-        </h2>
-
+      <section className="rev-services-note">
+        <h2>EVERY PROJECT HAS A DIFFERENT <span>SCOPE.</span></h2>
         <p>
-          Tell us about your business and what
-          you want to achieve. Let's explore
-          the possibilities together.
+          Pricing and delivery time depend on the number of pages,
+          features, creative assets and other requirements. We confirm
+          the estimate and schedule before work begins.
         </p>
-
-        <Link to="/contact" className="primary-btn">
-          Get in Touch
-          <ArrowUpRight size={18} />
+        <Link to="/contact" className="rev-button">
+          Discuss your requirements <ArrowUpRight size={18} />
         </Link>
-
       </section>
-
     </main>
   );
 }

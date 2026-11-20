@@ -1,306 +1,110 @@
-
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "motion/react";
-import { ArrowUpRight, ArrowDownRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
     number: "01",
     title: "The Modern Edit",
-    category: "Branding",
-    type: "E-COMMERCE & BRANDING",
+    category: "E-COMMERCE / BRANDING",
     description:
-      "A contemporary visual identity concept for a modern lifestyle and fashion brand.",
-    className: "project-modern",
-    initials: "ME.",
-    year: "2026",
+      "A self-initiated fashion storefront concept. The direction uses restrained typography, warm neutrals and a clear product-first layout.",
+    problem:
+      "Create a visual direction for a contemporary fashion store without overwhelming product presentation.",
+    decisions:
+      "Use a neutral palette, editorial typography and generous spacing to keep attention on the products.",
+    outcome:
+      "A proposed storefront direction with a consistent visual language and clear shopping hierarchy.",
+    className: "rev-case-modern",
+    mark: "ME",
   },
   {
     number: "02",
     title: "Daily Ritual",
-    category: "Social Media",
-    type: "BRANDING & SOCIAL MEDIA",
+    category: "COFFEE / BRAND IDENTITY",
     description:
-      "A warm, minimal branding and social media concept for a lifestyle and wellness brand.",
-    className: "project-ritual",
-    initials: "DR.",
-    year: "2026",
+      "A self-initiated identity concept for a specialty coffee brand, with a warm visual system and social content direction.",
+    problem:
+      "Create a recognisable identity that feels approachable and works across digital content.",
+    decisions:
+      "Explore earthy colours, a softer type treatment and repeatable graphic elements.",
+    outcome:
+      "A proposed identity direction for packaging, social posts and digital brand touchpoints.",
+    className: "rev-case-ritual",
+    mark: "DR",
   },
   {
     number: "03",
-    title: "Northstar Studio",
-    category: "Digital",
-    type: "DIGITAL EXPERIENCE",
+    title: "Nexora",
+    category: "TECHNOLOGY / WEB DESIGN",
     description:
-      "A modern website design concept focused on clarity, strong typography and user experience.",
-    className: "project-northstar",
-    initials: "NS.",
-    year: "2026",
+      "A self-initiated website concept for a technology business, focused on explaining services and guiding visitors through the site.",
+    problem:
+      "Make a technology offering easier to understand for first-time visitors.",
+    decisions:
+      "Use a strong headline hierarchy, clear service groupings and direct navigation.",
+    outcome:
+      "A proposed website structure and visual direction for a technology brand.",
+    className: "rev-case-nexora",
+    mark: "NX",
   },
 ];
 
-const categories = [
-  "All",
-  "Branding",
-  "Digital",
-  "Social Media",
-];
-
 export default function Portfolio() {
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  const filteredProjects =
-    activeCategory === "All"
-      ? projects
-      : projects.filter(
-          (project) => project.category === activeCategory
-        );
-
   return (
-    <main className="portfolio-page">
-
-      {/* PORTFOLIO HERO */}
-
-      <section className="portfolio-hero">
-
-        <motion.div
-          initial={{ opacity: 0, y: 35 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-
-          <span className="eyebrow">
-            LBDG / SELECTED CREATIVE WORK
-          </span>
-
-          <h1>
-            OUR WORK
-            <br />
-            <span>SPEAKS FOR ITSELF.</span>
-          </h1>
-
-          <div className="portfolio-hero-bottom">
-
-            <p>
-              A glimpse into the creative possibilities
-              of thoughtful branding, digital experiences
-              and strategic design.
-            </p>
-
-            <a href="#project-gallery" className="portfolio-scroll">
-              EXPLORE PROJECTS
-              <ArrowDownRight size={18} />
-            </a>
-
-          </div>
-
-        </motion.div>
-
-        <div className="portfolio-hero-symbol">
-          WORK.
-        </div>
-
+    <main className="rev-page">
+      <section className="rev-page-intro rev-work-intro">
+        <span className="rev-kicker">SELECTED DESIGN EXPLORATIONS</span>
+        <h1>
+          THE THINKING
+          <br />
+          <span>BEHIND THE DESIGN.</span>
+        </h1>
+        <p>
+          These self-initiated projects demonstrate design direction,
+          layout decisions and visual problem-solving. They are not
+          presented as paid client work.
+        </p>
       </section>
 
+      <section className="rev-case-list">
+        {projects.map((project) => (
+          <article className="rev-case" key={project.number}>
+            <div className={`rev-case-art ${project.className}`}>
+              <span>DESIGN EXPLORATION / {project.number}</span>
+              <strong>{project.mark}</strong>
+              <b>{project.title}</b>
+            </div>
 
-      {/* PROJECT GALLERY */}
+            <div className="rev-case-content">
+              <span className="rev-kicker">{project.category}</span>
+              <h2>{project.title}</h2>
+              <p>{project.description}</p>
 
-      <section
-        className="portfolio-gallery"
-        id="project-gallery"
-      >
+              <div className="rev-case-breakdown">
+                <div>
+                  <h3>THE CHALLENGE</h3>
+                  <p>{project.problem}</p>
+                </div>
+                <div>
+                  <h3>DESIGN DECISIONS</h3>
+                  <p>{project.decisions}</p>
+                </div>
+                <div>
+                  <h3>PROPOSED OUTCOME</h3>
+                  <p>{project.outcome}</p>
+                </div>
+              </div>
 
-        <div className="about-section-label">
-          <span>01 / SELECTED PROJECTS</span>
-          <span>CREATIVITY IN ACTION</span>
-        </div>
-
-        <div className="portfolio-gallery-heading">
-
-          <h2>
-            A FEW IDEAS.
-            <br />
-            <span>ENDLESS POSSIBILITIES.</span>
-          </h2>
-
-          <p>
-            Explore our creative concepts across
-            branding, digital experiences and
-            social media.
-          </p>
-
-        </div>
-
-
-        {/* CATEGORY FILTER */}
-
-        <div className="portfolio-filters">
-
-          {categories.map((category) => (
-
-            <button
-              key={category}
-              type="button"
-              className={
-                activeCategory === category
-                  ? "portfolio-filter active"
-                  : "portfolio-filter"
-              }
-              onClick={() => setActiveCategory(category)}
-            >
-              {category}
-            </button>
-
-          ))}
-
-        </div>
-
-
-        {/* PROJECT CARDS */}
-
-        <motion.div
-          className="portfolio-grid"
-          layout
-        >
-
-          {filteredProjects.map((project, index) => (
-
-            <motion.article
-              key={project.number}
-              className="portfolio-card"
-              layout
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 15 }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-            >
-
-              <div
-                className={`portfolio-artwork ${project.className}`}
+              <Link
+                to={`/contact?project=${encodeURIComponent(project.title)}`}
+                className="rev-text-link"
               >
-
-                <span className="portfolio-concept-tag">
-                  CONCEPT PROJECT
-                </span>
-
-                <div className="portfolio-artwork-content">
-                  <span className="portfolio-artwork-title">
-                    {project.title}
-                  </span>
-
-                  <span className="portfolio-artwork-initials">
-                    {project.initials}
-                  </span>
-                </div>
-
-                <span className="portfolio-artwork-year">
-                  {project.year}
-                </span>
-
-              </div>
-
-
-              <div className="portfolio-card-info">
-
-                <div className="portfolio-card-meta">
-
-                  <span>{project.type}</span>
-                  <span>{project.number}</span>
-
-                </div>
-
-                <h3>{project.title}</h3>
-
-                <p>{project.description}</p>
-
-                <div className="portfolio-card-bottom">
-
-                  <span>{project.category}</span>
-
-                  <Link
-                    to="/contact"
-                    aria-label={`Enquire about ${project.title}`}
-                  >
-                    Discuss a Similar Project
-                    <ArrowUpRight size={17} />
-                  </Link>
-
-                </div>
-
-              </div>
-
-            </motion.article>
-
-          ))}
-
-        </motion.div>
-
-        {filteredProjects.length === 0 && (
-          <p className="portfolio-empty">
-            No projects found in this category.
-          </p>
-        )}
-
+                Discuss a similar project <ArrowUpRight size={17} />
+              </Link>
+            </div>
+          </article>
+        ))}
       </section>
-
-
-      {/* CREATIVE APPROACH */}
-
-      <section className="portfolio-approach">
-
-        <div className="about-section-label">
-          <span>02 / OUR CREATIVE APPROACH</span>
-          <span>IDEAS WITH PURPOSE</span>
-        </div>
-
-        <h2>
-          NOT JUST GOOD
-          <br />
-          <span>LOOKING. GOOD THINKING.</span>
-        </h2>
-
-        <p>
-          Every creative concept begins with an idea.
-          We believe strong design should communicate
-          clearly, connect with people and support
-          the bigger picture.
-        </p>
-
-        <Link to="/services" className="text-btn">
-          Explore Our Services
-          <ArrowUpRight size={18} />
-        </Link>
-
-      </section>
-
-
-      {/* FINAL CTA */}
-
-      <section className="portfolio-final-cta">
-
-        <span className="eyebrow">
-          HAVE SOMETHING IN MIND?
-        </span>
-
-        <h2>
-          YOUR IDEA.
-          <br />
-          <span>OUR NEXT PROJECT.</span>
-        </h2>
-
-        <p>
-          Let's turn your vision into something
-          worth remembering.
-        </p>
-
-        <Link to="/contact" className="primary-btn">
-          Start Your Project
-          <ArrowUpRight size={18} />
-        </Link>
-
-      </section>
-
     </main>
   );
 }

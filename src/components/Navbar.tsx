@@ -1,59 +1,64 @@
 
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 
-const navItems = [
+const links = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Services", path: "/services" },
-  { name: "Our Work", path: "/portfolio" },
-  { name: "Contact", path: "/contact" },
+  { name: "Work", path: "/portfolio" },
 ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  return (
-    <header className="navbar">
-      <div className="nav-container">
+  const closeMenu = () => setMenuOpen(false);
 
-        <NavLink to="/" className="brand">
+  return (
+    <header className="navx-header">
+      <nav className="navx-bar">
+        <NavLink to="/" className="navx-logo" onClick={closeMenu}>
           LBDG<span>.</span>
         </NavLink>
 
-        <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
-          {navItems.map((item) => (
+        <div className={`navx-links ${menuOpen ? "navx-links-open" : ""}`}>
+          {links.map((link) => (
             <NavLink
-              key={item.name}
-              to={item.path}
-              onClick={() => setMenuOpen(false)}
+              key={link.path}
+              to={link.path}
+              end={link.path === "/"}
+              onClick={closeMenu}
               className={({ isActive }) =>
-                isActive ? "nav-link active-link" : "nav-link"
+                `navx-link ${isActive ? "navx-active" : ""}`
               }
             >
-              {item.name}
+              {link.name}
             </NavLink>
           ))}
-        </nav>
 
-        <NavLink
-          to="/contact"
-          className="nav-cta"
-        >
-          Let's Talk <ArrowUpRight size={17} />
+          <NavLink
+            to="/contact"
+            className="navx-mobile-contact"
+            onClick={closeMenu}
+          >
+            Let's talk <ArrowUpRight size={17} />
+          </NavLink>
+        </div>
+
+        <NavLink to="/contact" className="navx-cta">
+          Let's talk <ArrowUpRight size={17} />
         </NavLink>
 
         <button
-          className="menu-toggle"
+          className="navx-menu-toggle"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation menu"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
         >
-          {menuOpen ? <X /> : <Menu />}
+          {menuOpen ? <X size={23} /> : <Menu size={23} />}
         </button>
-
-      </div>
+      </nav>
     </header>
   );
 }

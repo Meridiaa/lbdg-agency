@@ -2,25 +2,22 @@
 import { MessageCircle } from "lucide-react";
 
 export default function WhatsAppButton() {
-  const whatsappNumber = "918160197878";
-
   const message = encodeURIComponent(
-    "Hello! I visited the LBDG Agency website and would like to know more about your services."
+    "Hello LBDG Agency! I would like to discuss a project."
   );
-
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`;
 
   return (
     <a
-      href={whatsappLink}
-      className="whatsapp-button"
+      href={`https://wa.me/919838686391?text=${message}`}
+      className="whatsapp-float"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat with us on WhatsApp"
-      title="Chat with us on WhatsApp"
+      aria-label="Chat with LBDG Agency on WhatsApp"
     >
-      <MessageCircle size={27} />
-      <span>Let's Chat</span>
+      <span className="whatsapp-tooltip">Let's chat!</span>
+      <span className="whatsapp-icon">
+        <MessageCircle size={27} />
+      </span>
     </a>
   );
 }

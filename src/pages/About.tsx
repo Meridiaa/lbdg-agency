@@ -1,298 +1,97 @@
-
 import { Link } from "react-router-dom";
-import { motion } from "motion/react";
-import {
-  ArrowUpRight,
-  Lightbulb,
-  Target,
-  Layers,
-  Rocket,
-} from "lucide-react";
-
-const values = [
-  {
-    number: "01",
-    title: "Creative Thinking",
-    description:
-      "We explore fresh perspectives and develop ideas that help brands stand apart.",
-    icon: Lightbulb,
-  },
-  {
-    number: "02",
-    title: "Strategic Approach",
-    description:
-      "Every decision is guided by purpose, audience understanding and business objectives.",
-    icon: Target,
-  },
-  {
-    number: "03",
-    title: "Meaningful Design",
-    description:
-      "We bring ideas to life through thoughtful visuals and engaging digital experiences.",
-    icon: Layers,
-  },
-  {
-    number: "04",
-    title: "Continuous Growth",
-    description:
-      "We believe in adapting, experimenting and finding better ways to move forward.",
-    icon: Rocket,
-  },
-];
-
-const process = [
-  {
-    number: "01",
-    title: "Discover",
-    description:
-      "We understand your business, audience, goals and challenges.",
-  },
-  {
-    number: "02",
-    title: "Strategize",
-    description:
-      "We create a focused direction and plan for your project.",
-  },
-  {
-    number: "03",
-    title: "Create",
-    description:
-      "We bring the strategy to life through design and development.",
-  },
-  {
-    number: "04",
-    title: "Evolve",
-    description:
-      "We evaluate, refine and identify opportunities for improvement.",
-  },
-];
+import { ArrowUpRight } from "lucide-react";
 
 export default function About() {
   return (
-    <main className="about-page">
-
-      {/* PAGE HERO */}
-
-      <section className="about-page-hero">
-
-        <motion.div
-          className="about-page-hero-content"
-          initial={{ opacity: 0, y: 35 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <span className="eyebrow">
-            ABOUT LBDG / OUR STORY
-          </span>
-
-          <h1>
-            MORE THAN
-            <br />
-            JUST <span>AN AGENCY.</span>
-          </h1>
-
-          <div className="about-hero-bottom">
-            <p>
-              We bring creativity, strategy and technology
-              together to help businesses build stronger
-              digital identities and meaningful connections.
-            </p>
-
-            <span className="about-scroll">
-              SCROLL TO DISCOVER ↓
-            </span>
-          </div>
-        </motion.div>
-
-        <div className="about-hero-decoration">
-          L.
-        </div>
-
+    <main className="rev-page">
+      <section className="rev-page-intro rev-about-intro">
+        <span className="rev-kicker">ABOUT LBDG AGENCY</span>
+        <h1>
+          WE HELP BUSINESSES
+          <br />
+          <span>SHOW UP BETTER ONLINE.</span>
+        </h1>
+        <p>
+          Website development, visual design and digital marketing
+          brought together around the needs of your business.
+        </p>
       </section>
 
-
-      {/* OUR STORY */}
-
-      <section className="about-story">
-
-        <div className="about-section-label">
-          <span>01 / OUR STORY</span>
-          <span>THE THINKING BEHIND THE WORK</span>
-        </div>
-
-        <div className="story-layout">
-
-          <div>
-            <span className="eyebrow">
-              WHO WE ARE
-            </span>
-
-            <h2>
-              IDEAS WITH
-              <br />
-              <span>INTENTION.</span>
-            </h2>
-          </div>
-
-          <div className="story-content">
-
-            <p className="story-lead">
-              Every brand has a story.
-              We believe it deserves to be seen,
-              experienced and remembered.
-            </p>
-
-            <p>
-              LBDG is presented as a creative and digital
-              agency bringing together marketing,
-              social media, advertising, graphic design,
-              website development and SEO.
-            </p>
-
-            <p>
-              Our approach combines creative exploration
-              with strategic thinking to create digital
-              experiences that communicate clearly
-              and support business goals.
-            </p>
-
-            <Link to="/services" className="text-btn">
-              Explore What We Do
-              <ArrowUpRight size={18} />
-            </Link>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* OUR VALUES */}
-
-      <section className="about-values-section">
-
-        <div className="about-section-label">
-          <span>02 / WHAT DRIVES US</span>
-          <span>OUR CORE VALUES</span>
-        </div>
-
-        <div className="values-heading">
+      <section className="rev-about-story">
+        <div className="rev-about-statement">
+          <span className="rev-kicker">WHAT WE DO</span>
           <h2>
-            THE WAY WE
-            <br />
-            <span>THINK & CREATE.</span>
+            WE TURN BUSINESS REQUIREMENTS INTO
+            <span> USEFUL DIGITAL WORK.</span>
           </h2>
+        </div>
+
+        <div className="rev-about-copy">
+          <p>
+            A website should explain what you offer, help visitors
+            find the information they need and make contacting you easy.
+            Brand design should make your business recognisable.
+            Marketing should have a clear audience and purpose.
+          </p>
 
           <p>
-            Good work comes from having the right
-            mindset, a clear direction and a willingness
-            to keep improving.
+            That's the work we focus on at LBDG: building and improving
+            the parts of your digital presence that customers actually use.
           </p>
+
+          <p>
+            We work across website development, graphic design,
+            social media, advertising, digital marketing and SEO.
+            Projects are scoped around the requirements rather than
+            forcing every business into the same package.
+          </p>
+
+          <Link to="/services" className="rev-button">
+            See our services <ArrowUpRight size={18} />
+          </Link>
         </div>
-
-        <div className="values-grid">
-
-          {values.map((value, index) => {
-            const Icon = value.icon;
-
-            return (
-              <motion.article
-                className="value-card"
-                key={value.number}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.1,
-                }}
-              >
-
-                <div className="value-card-top">
-                  <Icon size={29} strokeWidth={1.5} />
-                  <span>{value.number}</span>
-                </div>
-
-                <h3>{value.title}</h3>
-
-                <p>{value.description}</p>
-
-              </motion.article>
-            );
-          })}
-
-        </div>
-
       </section>
 
+      <section className="rev-about-delivery">
+        <span className="rev-kicker">HOW A PROJECT MOVES FORWARD</span>
+        <h2>FROM BRIEF TO <span>DELIVERY.</span></h2>
 
-      {/* OUR PROCESS */}
-
-      <section className="about-process">
-
-        <div className="about-section-label">
-          <span>03 / HOW WE WORK</span>
-          <span>FROM IDEAS TO EXECUTION</span>
+        <div className="rev-timeline">
+          <article>
+            <span>01</span>
+            <h3>Brief</h3>
+            <p>We discuss your business, audience, requirements and priorities.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Scope</h3>
+            <p>We agree on the work, deliverables, schedule and project estimate.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Build</h3>
+            <p>Design and development move forward with review points along the way.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Handover</h3>
+            <p>We review the final work and prepare the agreed deliverables.</p>
+          </article>
         </div>
-
-        <div className="process-heading">
-          <h2>
-            A CLEAR PATH.
-            <br />
-            <span>BETTER POSSIBILITIES.</span>
-          </h2>
-        </div>
-
-        <div className="process-list">
-
-          {process.map((step) => (
-            <div className="process-item" key={step.number}>
-
-              <span className="process-number">
-                {step.number}
-              </span>
-
-              <h3>{step.title}</h3>
-
-              <p>{step.description}</p>
-
-              <ArrowUpRight size={21} />
-
-            </div>
-          ))}
-
-        </div>
-
       </section>
 
-
-      {/* FINAL CTA */}
-
-      <section className="about-final-cta">
-
-        <span className="eyebrow">
-          YOUR NEXT CHAPTER STARTS HERE
-        </span>
-
-        <h2>
-          LET'S BUILD
-          <br />
-          <span>WHAT'S NEXT.</span>
-        </h2>
-
+      <section className="rev-about-note">
+        <div>
+          <span className="rev-kicker">NO MADE-UP BACKSTORY</span>
+          <h2>REAL PEOPLE. <span>REAL DETAILS.</span></h2>
+        </div>
         <p>
-          Have an idea or a business ready to grow?
-          Let's create something meaningful together.
+          This page will be expanded with the agency's actual founder
+          information, team photographs and story when those details
+          are available. We would rather leave room for the truth than
+          publish fictional credentials.
         </p>
-
-        <Link to="/contact" className="primary-btn">
-          Start a Conversation
-          <ArrowUpRight size={18} />
-        </Link>
-
       </section>
-
     </main>
   );
 }
